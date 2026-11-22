@@ -1,0 +1,8 @@
+import Link from "next/link";
+import { contact } from "@/lib/content";
+import { Navigation } from "./navigation";
+export function Brand() { return <Link className="brand" href="/" aria-label="TPI Geometria — início"><span className="brand-mark" aria-hidden="true">⊕</span><span><strong>TPI<span className="brand-name"> GEOMETRIA</span></strong><small>ALINHAMENTO INDUSTRIAL</small></span></Link>; }
+export function Header() { return <header className="site-header"><div className="container header-inner"><Brand /><Navigation /></div></header>; }
+export function Footer() { return <footer className="site-footer"><div className="container footer-grid"><div><Brand /><p>Geometria, alinhamento e nivelamento industrial.</p></div><div><h2>Fale com a TPI</h2>{contact.phones.map(phone => <a key={phone.href} href={phone.href}>{phone.label}</a>)}</div><div><h2>Onde estamos</h2><address>{contact.address}</address><Link href="/contato/">Todos os contatos →</Link></div></div><div className="container footer-bottom">TPI Geometria · Alinhamento industrial</div></footer>; }
+export function PageIntro({ eyebrow, title, children }: { eyebrow: string; title: string; children: React.ReactNode }) { return <section className="page-intro"><div className="container"><p className="eyebrow">{eyebrow}</p><h1>{title}</h1><div className="intro-copy">{children}</div></div></section>; }
+export function ContactCTA() { return <section className="container section"><div className="contact-cta"><div><p className="eyebrow">Vamos conversar</p><h2>Cada cliente, uma visão diferente.</h2><p>Converse com nossa equipe sobre o seu equipamento.</p></div><Link className="button light" href="/contato/">Fale com a TPI <span aria-hidden="true">↗</span></Link></div></section>; }
